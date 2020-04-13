@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="">
+	<title>旋转的太极图</title>
+	<style>
+	body{
+		margin: 0px;
+		background-color: #ccc;
+	}
+	html,body{
+		height: 100%;
+	}
+	@keyframes ani{
+		100%{
+			transform: rotate(360deg);
+		}
+	}
+	.content{
+		position: fixed;
+		height: 400px;
+		width: 400px;
+		border-radius: 50%;
+		overflow: hidden;
+		background-color: white;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		animation: ani 2s linear infinite;
+	}
+	.circle{
+		height: 400px;
+		width: 200px;
+	}
+	.circle::before{
+		content: "";
+		position: absolute;
+		height: 200px;
+		width: 200px;
+		border-radius: 50%;
+		overflow: hidden;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	.circle::after{
+		content: "";
+		position: absolute;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		overflow: hidden;
+		left: 0;
+		right: 0;
+		margin: auto;
+		z-index: 2;
+	}
+	.lf{
+		float: left;
+		background-color: black;
+	}
+	.lf::before{
+		top: 0;
+		background-color: black;
+	}
+	.lf::after{
+		top: 50px;
+		background-color: white;
+	}
+	.rgt{
+		float: right;
+		background-color: white;
+	}
+	.rgt::before{
+		bottom: 0;
+		background-color: white;
+	}
+	.rgt::after{
+		bottom: 50px;
+		background-color: black;
+	}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="lf circle"></div>
+		<div class="rgt circle"></div>
+	</div>
+</body>
+</html>
